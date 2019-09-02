@@ -7,7 +7,7 @@ class Ccgro extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library("registrobi");
+        $this->load->library("RegistroBi");
         $this->bi = $this->registrobi;
     }
 

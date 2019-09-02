@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'www.ccgro.com.mx:3306',
+	'hostname' => '67.225.220.156',
 	'username' => 'ccgrocom_ccgro',
 	'password' => 'ccgroADMIN1234',
 	'database' => 'ccgrocom_ccgro',
@@ -92,5 +92,6 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => TRUE,
+	'port' => 3306
 );

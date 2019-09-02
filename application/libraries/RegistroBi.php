@@ -2,7 +2,7 @@
 
 class RegistroBi
 {
-    public function RegistroBi()
+    public function __construct()
     {
         $CI = &get_instance();
         $CI->load->model('registroDao');
@@ -14,7 +14,7 @@ class RegistroBi
         return $this->dao->agregarRegistro($registro);
     }
 
-//     public function sendMail($email)
+    //     public function sendMail($email)
     //     {
     //         $email->from('admin@@ccgro.com.mx', 'Portal Web Información');
     //         $email->to('sacorus@gmail.com');
@@ -24,7 +24,7 @@ class RegistroBi
     //             return true;
     //         echo $email->print_debugger();
 
-// /*
+    // /*
     // $message = '';
     // $this->load->library('email',);
     // $this->email->set_newline("\r\n");
@@ -39,5 +39,5 @@ class RegistroBi
     // return false;
     // }*/
 
-//     }
+    //     }
 }
