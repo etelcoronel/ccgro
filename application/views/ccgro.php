@@ -73,8 +73,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</header><!-- header section end -->
 	<!-- hero area start -->
 	<section class="hero-area" id="home">
-		<div class="player" data-property="{videoURL:'http://youtu.be/kn-1D5z3-Cs',containment:'#home',autoPlay:true, mute:true, startAt:0, showControls:false, loop:true, opacity:1}"></div>
-		<div class="container">
+		<!-- <div class="player" data-property="{videoURL:'http://youtu.be/kn-1D5z3-Cs',containment:'#home',autoPlay:false, mute:true, startAt:0, showControls:false, loop:true, opacity:1}"></div> -->
+		<div style="heigh:100px; margin-top:-80px; background-color:white">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12" style="text-align:right;">
+						<img src="assets/img/ift.png" alt="Hand Mockup" width="300px"  />
+					</div>
+				</div>	
+			</div>	
+		</div>
+		<div class="container">			
 			<div class="row">
 				<div class="col-lg-7">
 					<div class="hero-area-content" style="text-align: center;">
@@ -86,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class="col-lg-5">
-					<div class="hand-mockup text-lg-left text-center">
+					<div class="hand-mockup text-lg-left text-center">						
 						<img src="assets/img/logo_ccgro.png" alt="Hand Mockup" />
 					</div>
 				</div>
@@ -388,48 +397,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12">
-					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-						</ol>
-						<div class="carousel-inner" style="border: solid 2px white;">
-							<div class="carousel-item active">
-								<img class="d-block w-100" src="assets/img/1.jpg" alt="First slide">
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="assets/img/2.jpg" alt="Second slide">
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="assets/img/3.jpg" alt="Third slide">
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="assets/img/4.jpg" alt="Fourth slide">
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="assets/img/5.jpg" alt="Five slide">
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="assets/img/6.jpg" alt="sixt slide">
-							</div>
+			<div class="offset-2 col-lg-8">
+
+				<div class="contenedor-carrusel">
+					<div class="carousel">
+						<input type="radio" id="carousel-1" name="carousel[]" checked>
+						<input type="radio" id="carousel-2" name="carousel[]">
+						<input type="radio" id="carousel-3" name="carousel[]">
+						<input type="radio" id="carousel-4" name="carousel[]">
+						<input type="radio" id="carousel-5" name="carousel[]">
+						<ul class="carousel__items">
+							<li class="carousel__item"> <div class="slide-1"> </div> </li>
+							<li class="carousel__item"> <div class="slide-2"> </div> </li>
+							<li class="carousel__item"> <div class="slide-3"> </div> </li>
+							<li class="carousel__item"> <div class="slide-4"> </div> </li>
+							<li class="carousel__item"> <div class="slide-5"> </div> </li>
+						</ul>
+						<div class="carousel__prev">
+							<label for="carousel-1"></label>
+							<label for="carousel-2"></label>
+							<label for="carousel-3"></label>
+							<label for="carousel-4"></label>
+							<label for="carousel-5"></label>
 						</div>
-						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-							data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-							data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
+						<div class="carousel__next">
+							<label for="carousel-1"></label>
+							<label for="carousel-2"></label>
+							<label for="carousel-3"></label>
+							<label for="carousel-4"></label>
+							<label for="carousel-5"></label>
+						</div>
+						<div class="carousel__nav">
+							<label for="carousel-1"></label>
+							<label for="carousel-2"></label>
+							<label for="carousel-3"></label>
+							<label for="carousel-4"></label>
+							<label for="carousel-5"></label>
+						</div>
 					</div>
 				</div>
+					
 			</div>
 		</div>
 	</section><!-- pricing section end -->
@@ -547,7 +554,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		//action="/index.php/ccgro/saveregistro"
 		$('#formRegistro').submit(function() {
 		var post_data = $('#formRegistro').serialize();
-		$.post('./index.php/ccgro/agregarRegistro', post_data, function(data) {
+		$.post('./index.php/Ccgro/agregarRegistro', post_data, function(data) {
 			console.log("caraga");
 			console.log(data);
 			//$('#notification').show();
