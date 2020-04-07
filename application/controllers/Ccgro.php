@@ -60,7 +60,7 @@ class Ccgro extends CI_Controller
         //Replace the plain text body with one created manually
         //$mail->AltBody = 'This is a plain-text message body';
         $mail->isHTML(true);
-        $mailContent = "<h3>Solicitud de informacion desde la pagina http://cami.mx</h3> <br>". 
+        $mailContent = "<h3>Solicitud de informacion desde la pagina http://ccgro.com.mx/</h3> <br>". 
         "<b>Nombre:</b> ". $registro['fullname']." <br>".
         "<b>Email:</b> ". $registro['email'] . " <br>".
         "<b>Telefono:</b> ". $registro['telefono']." <br>".
