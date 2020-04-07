@@ -454,13 +454,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="contact-form">
 						<h4>Registro</h4>
 						<p class="form-message"></p>							
-						<form id="formRegistro" onsubmit="return false">							
-							<input type="text" name="name" placeholder="Nombre Completo">
-							<input type="email" name="email" placeholder="Correo Electrónico">
-							<input type="text" name="telefono" placeholder="Teléfono">							
-							<textarea placeholder="Mensaje" name="mensaje"></textarea>
-							<button type="submit">Enviar Mensaje</button>
-						</form>
+						<form id="formRegistro" onsubmit="return false">
+                            <div> <input type="text" name="name" placeholder="Nombre Completo"> </div>
+                            <div> <input type="email" name="email" placeholder="Correo Electrónico"> </div>
+                            <div> <input type="number" name="telefono" placeholder="Teléfono"> </div>
+                            <div> <textarea placeholder="Mensaje" name="mensaje"></textarea> </div>                                                                                                                
+                            <button type="submit">Enviar Mensaje</button>
+                        </form>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -550,16 +550,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="assets/js/switcher.js"></script>
 	<!-- main JS -->
 	<script src="assets/js/main.js"></script>
+	<!-- Alerts-->
+	<script src="assets/js/sweetalert.min.js"></script>
 	<script>
-		//action="/index.php/ccgro/saveregistro"
-		$('#formRegistro').submit(function() {
-		var post_data = $('#formRegistro').serialize();
-		$.post('./index.php/Ccgro/agregarRegistro', post_data, function(data) {
-			console.log("caraga");
-			console.log(data);
-			//$('#notification').show();
-		});
-		});
+	 $('#formRegistro').submit(function() {
+            var isValido = true;
+            $('input').each(function(index, item){
+                var $input = $(item);
+                $input.closest('div').removeClass('c-error');
+                if ($input.val().trim() == '') {
+                   $input.closest('div').addClass('c-error');
+                   isValido = false;
+                }
+            });
+            if(!isValido){
+                swal({
+                        title: "Validacion de formularios",
+                        text: "Existen campos vacios en el formulario; es necesario rellenarlos",
+                        icon: "error",
+                        buttons: false,
+                        timer: 3000
+                    });
+                return;
+            }
+               
+            
+            swal({
+                        title: "Envio de correo",
+                        text:'Enviando correo ...',
+                        icon: "warning",
+                        buttons: false                                           
+                    });
+            var post_data = $('#formRegistro').serialize();
+            $.post('./index.php/ccgro/agregarRegistro', post_data, function(data){                
+                if(data=='{success:true}'){
+                    $('#formRegistro').trigger("reset");
+                    swal({
+                        title: "Envio de Correo",
+                        text: "Se ha enviado el correo exitosamente.",
+                        icon: "success",
+                        buttons: false,
+                        timer: 3000
+                    });
+                    //swal("Envio de Correo", "Se ha enviado el correo exitosamente.", "success");                   
+                }else{
+                    swal({
+                        title: "Envio de Correo",
+                        text: "Ha ocurrido un error al intentar enviar el correo.",
+                        icon: "error",
+                        buttons: false,
+                        timer: 3000
+                    });
+                }
+            }).fail(function(xhr, status, error){
+                swal({
+                    title: "Envio de Correo",
+                    text: "Ha ocurrido un error al intentar enviar el correo.",
+                    icon: "error",
+                    buttons: false,
+                    timer: 3000
+                });
+            });
+        });
 </script>
 </body>
 
